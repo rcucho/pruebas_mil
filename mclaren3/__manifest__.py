@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Jasatec - Mstech',
+    'name': 'Mclaren3 - Mstech',
     'version': '14.0.1.0.0',
     'author': 'MSTECH',
     'category' : 'Technical Configuration',
