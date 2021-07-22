@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="garantia_account_move">
+			<field name="name">account.move.garantia</field>
+			<field name="model">account.move</field>
+			<field name="inherit_id" ref="account.view_move_form"/>
+			<field name="arch" type="xml">
+				<data>
+					<xpath expr="//field[@name='invoice_date']" position="after">
+						<field name="jasatec_fecha"/>
+					</xpath>
+				</data>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="mclaren_crm">
+			<field name="name">crm.lead.mclaren</field>
+			<field name="model">crm.lead</field>
+			<field name="inherit_id" ref="crm.crm_lead_view_form"/>
+			<field name="arch" type="xml">
+				<data>
+					<xpath expr="//field[@name='company_id']" position="after">
+						<field name="mclaren"/>
+					</xpath>
+					<xpath expr="//field[@name='expected_revenue']" position="before">
+                    				<field name="currency_partner"/>
+                			</xpath>
+					<xpath expr="//field[@name='expected_revenue']" position="attributes">
+                    				<attribute name="options">{'currency_field': 'currency_partner'}</attribute>
+                			</xpath>
+					<xpath expr="//field[@name='recurring_revenue']" position="attributes">
+                    				<attribute name="options">{'currency_field': 'currency_partner'}</attribute>
+                			</xpath>
+
+				</data>
+			</field>
+		</record>
+		<record model="ir.ui.view" id="res_partner_masivo">
+			<field name="name">res.partner.masivo</field>
+			<field name="model">res.partner</field>
+			<field name="inherit_id" ref="base.view_partner_form"/>
+			<field name="arch" type="xml">
+			<data>
+				<xpath expr="//field[@name='category_id']" position="after">
+					<field name="partner_masivo"/>
+				</xpath>
+			</data>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="sale_portal_mclaren">
+			<field name="name">sale.portal.mclaren</field>
+			<!--<field name="model">sale.order</field>-->
+			<field name="inherit_id" ref="sale.sale_order_portal_content"/>
+			<field name="arch" type="xml">
+			<data>
+				<xpath expr="//div[@id='so_date']" position="before">
+					<div class="row" id="so_cliente">
+                    				<div class="mb-6 col-12">
+                      					<t t-if="sale_order.partner_id">
+                        					<strong>Cliente: </strong> 
+                      					</t>
+                      					<span t-field="sale_order.partner_id"/>
+                    				</div>
+                			</div>
+				</xpath>
+			</data>
+			</field>
+		</record>
+		<record id="view_fleet_vehicle_mclaren_form" model="ir.ui.view">
+			<field name="name">fleet.vehicule.mclaren.form</field>
+			<field name="model">fleet.vehicle</field>
+			<field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+			<field name="arch" type="xml">
+			<data>
+				<xpath expr="//field[@name='company_id']" position="after">
+		    			<field name="fecha_ini"/>
+					<field name="fecha_fin"/>
+				</xpath>
+			</data>
+			</field>
+		</record>
+		
+	</data>
+</odoo>

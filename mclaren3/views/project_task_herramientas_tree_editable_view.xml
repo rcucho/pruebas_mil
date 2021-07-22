@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<record model="ir.ui.view" id="project_task_herramientas_tree_editable_view">
+			<field name="name">stock.picking.project.task.herramientas.tree.editable.view</field>
+			<field name="model">stock.picking</field>
+			<field name="mode">primary</field>
+			<field name="priority" eval="10"/>
+			<field name="inherit_id" ref="mstech.view_project_task_technical"/>
+			<field name="arch" type="xml">
+				<xpath expr="//tree" position="inside">
+					<button name="do_unreserve" type="object" string="Unreserve"/>
+				</xpath>	
+			</field>
+		</record>
+    </data>
+</odoo>
