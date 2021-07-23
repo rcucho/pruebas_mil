@@ -6,7 +6,10 @@
     'category' : 'Technical Configuration',
     'website': 'http://www.mstech.pe',
     'depends': [
-        'mstech',
+        'contacts',
+        'sale',
+        'fleet',
+        'stock',
     ],
     'data': [
         'views/account_payment.xml'
