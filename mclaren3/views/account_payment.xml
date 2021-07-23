@@ -16,7 +16,7 @@
 								<span t-field="sale_order.partner_id"/>
 							</div>
 						</div>
-						<div class="row" id="so_lugares">
+						<!--<div class="row" id="so_lugares">
 							<div class="mb-3 col-6">
 								<t t-if="sale_order.pickup_place">
 									<strong>Lugar de Recojo: </strong> 
@@ -57,7 +57,7 @@
 								</t>
 								<span t-field="sale_order.nro_reserva"/>
 							</div>
-						</div>
+						</div>-->
 					</xpath>
 				</data>
 			</field>
