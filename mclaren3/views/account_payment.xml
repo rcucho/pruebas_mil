@@ -7,13 +7,55 @@
 			<field name="inherit_id" ref="sale.sale_order_portal_content"/>
 			<field name="arch" type="xml">
 				<data>
-					<xpath expr="//div[@id='so_date']" position="after">
-						<div class="row" id="so_prueba">
+					<xpath expr="//div[@id='so_date']" position="before">
+						<div class="row" id="so_cliente1">
 							<div class="mb-6 col-12">
-								<t t-if="sale_order.partner_id.vat">
-									<strong>Nro dni: </strong> 
+								<t t-if="sale_order.partner_id">
+									<strong>Cliente: </strong> 
 								</t>
-								<span t-field="sale_order.partner_id.vat"/>
+								<span t-field="sale_order.partner_id"/>
+							</div>
+						</div>
+						<div class="row" id="so_lugares">
+							<div class="mb-3 col-6">
+								<t t-if="sale_order.pickup_place">
+									<strong>Lugar de Recojo: </strong> 
+								</t>
+								<span t-field="sale_order.pickup_place"/>
+							</div>
+							<div class="mb-3 col-6">
+								<t t-if="sale_order.devolution_place">
+									<strong>Lugar de Devolucion: </strong> 
+								</t>
+								<span t-field="sale_order.devolution_place"/>
+							</div>
+						</div>
+						<div class="row" id="so_fechas">
+							<div class="mb-3 col-6">
+								<t t-if="sale_order.pickup_date">
+									<strong>Fecha de Recojo: </strong> 
+								</t>
+								<span t-field="sale_order.pickup_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+							</div>
+							<div class="mb-3 col-6">
+								<t t-if="sale_order.devolution_date">
+									<strong>Fecha de Devolucion: </strong> 
+								</t>
+								<span t-field="sale_order.devolution_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+							</div>
+						</div>
+						<div class="row" id="so_tipo_reserva">
+							<div class="mb-3 col-6">
+								<t t-if="sale_order.type_car">
+									<strong>Tipo de Vehiculo: </strong> 
+								</t>
+								<span t-field="sale_order.type_car"/>
+							</div>
+							<div class="mb-3 col-6">
+								<t t-if="sale_order.nro_reserva">
+									<strong>Numero de Reserva: </strong> 
+								</t>
+								<span t-field="sale_order.nro_reserva"/>
 							</div>
 						</div>
 					</xpath>
